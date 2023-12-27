@@ -1,5 +1,5 @@
-# Formly
+# Formy
 
-Automation of Formly using Selenium
+Automation of Formy using Selenium
 
 Technologies Used-Selenium, Java, TestNG, Maven.
