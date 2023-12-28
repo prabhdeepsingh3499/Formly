@@ -9,9 +9,9 @@ import pages.ConfirmationPage;
 import pages.FormPage;
 import utility.PropertyReader;
 public class TestRunner extends BaseClass {
-	static PropertyReader prreader = new PropertyReader();
+    PropertyReader prreader = new PropertyReader();
 	private String browserType = prreader.getApplicationProperty("browser");
-	WebDriver driver;
+	private WebDriver driver;
 	@BeforeMethod
 	public void setup(){
 		driver = setDriver(browserType);
