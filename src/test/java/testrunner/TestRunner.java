@@ -5,12 +5,14 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
+import pages.ComponentPage;
 import pages.ConfirmationPage;
 import pages.FormPage;
 import utility.PropertyReader;
 public class TestRunner extends BaseClass {
     PropertyReader prreader = new PropertyReader();
 	private String browserType = prreader.getApplicationProperty("browser");
+	private String component = prreader.getApplicationProperty("component");
 	private WebDriver driver;
 	@BeforeMethod
 	public void setup(){
@@ -21,13 +23,22 @@ public class TestRunner extends BaseClass {
 	public void tearDown(){
 		closeBrowser();
 	}
-	@Test
-	public void Test(){
+	@Test(description="Test with Form",groups="Form")
+	public void Test_Form(){
+		ComponentPage componentPage = new ComponentPage(driver);
 		FormPage formPage = new FormPage(driver);
 		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
+		componentPage.selectComponent(component);
 		formPage.enterInformation();
 		confirmationPage.isSuccessMessageDisplayed();
-		
-		
+	}
+	@Test(description="Test with Autocomplete",groups="Autocomplete")
+	public void Test_Automcomplete(){
+		ComponentPage componentPage = new ComponentPage(driver);
+		FormPage formPage = new FormPage(driver);
+		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
+		componentPage.selectComponent(component);
+		formPage.enterInformation();
+		confirmationPage.isSuccessMessageDisplayed();
 	}
 }
