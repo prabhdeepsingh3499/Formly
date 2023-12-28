@@ -1,4 +1,5 @@
 package testrunner;
+import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -10,20 +11,21 @@ import utility.PropertyReader;
 public class TestRunner extends BaseClass {
 	static PropertyReader prreader = new PropertyReader();
 	private String browserType = prreader.getApplicationProperty("browser");
+	WebDriver driver;
 	@BeforeMethod
 	public void setup(){
-		BaseClass.setDriver(browserType);
+		driver = setDriver(browserType);
 	}
 
 	@AfterMethod
 	public void tearDown(){
-		BaseClass.closeBrowser();
+		closeBrowser();
 	}
 	@Test
 	public void Test(){
 		FormPage formPage = new FormPage(driver);
-		formPage.enterInformation();
 		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
+		formPage.enterInformation();
 		confirmationPage.isSuccessMessageDisplayed();
 		
 		
