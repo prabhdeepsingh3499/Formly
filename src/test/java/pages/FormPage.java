@@ -1,8 +1,13 @@
 package pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import utility.RandomData;
 public class FormPage {
 	private WebDriver driver;
@@ -25,6 +30,8 @@ public class FormPage {
 	private By enterDate = By.id("datepicker");
 	private By submit = By.linkText("Submit");
 	public void enterInformation() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.elementToBeClickable(firstName));
 		driver.findElement(firstName).sendKeys(random.getFirstName());
 		driver.findElement(lastName).sendKeys(random.getLastName());
 		driver.findElement(jobTitle).sendKeys(random.getJobTitle());
