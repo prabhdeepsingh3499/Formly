@@ -6,8 +6,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import utility.PropertyReader;
 public class BaseClass {
 	protected WebDriver driver=null;
-	 static PropertyReader prReader = new PropertyReader();
-	private static String appURL = prReader.getApplicationProperty("baseURL");
+	PropertyReader prReader = new PropertyReader();
+	private String appURL = prReader.getApplicationProperty("baseURL");
 	 public WebDriver setDriver(String browserType)
 		{
 			switch (browserType.toLowerCase())
