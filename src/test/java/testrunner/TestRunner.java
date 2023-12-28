@@ -32,13 +32,4 @@ public class TestRunner extends BaseClass {
 		formPage.enterInformation();
 		confirmationPage.isSuccessMessageDisplayed();
 	}
-	@Test(description="Test with Autocomplete",groups="Autocomplete")
-	public void Test_Automcomplete(){
-		ComponentPage componentPage = new ComponentPage(driver);
-		FormPage formPage = new FormPage(driver);
-		ConfirmationPage confirmationPage = new ConfirmationPage(driver);
-		componentPage.selectComponent(component);
-		formPage.enterInformation();
-		confirmationPage.isSuccessMessageDisplayed();
-	}
 }
