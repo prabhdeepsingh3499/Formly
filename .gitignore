@@ -2,3 +2,4 @@
 .settings/
 test-output/
 /project
+.classpath
